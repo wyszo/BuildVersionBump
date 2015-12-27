@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C5AC50034E014428C69E7C6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACD57BCF368F4702DDEE2 /* main.swift */; };
+		6C5AC822F949696CA802F29D /* StringByTrimmingWhitespaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AC6E257A838304C2DFA41 /* StringByTrimmingWhitespaceTests.swift */; };
 		6C5ACB3D94D03D44A8AF1A61 /* BumpBuildVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACB7A0781E8C2C0DA491C /* BumpBuildVersionTests.swift */; };
 		6C5ACD4B9B481BEFD27530F1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACD57BCF368F4702DDEE2 /* main.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		6C5AC47C965B6AEE052368C7 /* BumpBuildVersionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BumpBuildVersionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C5AC6E257A838304C2DFA41 /* StringByTrimmingWhitespaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringByTrimmingWhitespaceTests.swift; sourceTree = SOURCE_ROOT; };
 		6C5ACB7A0781E8C2C0DA491C /* BumpBuildVersionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumpBuildVersionTests.swift; sourceTree = "<group>"; };
 		6C5ACD03DF826BDA2C893B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		6C5ACD57BCF368F4702DDEE2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				6C5ACD03DF826BDA2C893B76 /* Info.plist */,
 				6C5ACB7A0781E8C2C0DA491C /* BumpBuildVersionTests.swift */,
+				6C5AC6E257A838304C2DFA41 /* StringByTrimmingWhitespaceTests.swift */,
 			);
 			path = BumpBuildVersionTests;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				6C5ACB3D94D03D44A8AF1A61 /* BumpBuildVersionTests.swift in Sources */,
 				6C5AC50034E014428C69E7C6 /* main.swift in Sources */,
+				6C5AC822F949696CA802F29D /* StringByTrimmingWhitespaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
