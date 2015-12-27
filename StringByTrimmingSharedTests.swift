@@ -3,6 +3,14 @@ import XCTest
 // TODO: somehow ensure this base class tests don't get executed when running unit tests!
 class StringByTrimmingSharedTests : XCTestCase {
 
+    override func performTest(run: XCTestRun) {
+        if self.dynamicType == StringByTrimmingSharedTests.self {
+            return; // Don't run any tests if we're in abstract base class!
+        } else {
+            super.performTest(run)
+        }
+    }
+
     // TODO: this needs to be passed as a pointer to function, without a need to override the method!
     func trimmingMethod(string : String) -> String? {
         return nil
