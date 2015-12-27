@@ -7,33 +7,6 @@ struct Constants {
     static let agvtoolPath = "/usr/bin/agvtool"
 }
 
-extension String {
-    func stringByTrimmingWhitespace() -> String {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-    }
-
-    func stringByTrimmingWhitespaceAndNewline() -> String {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-    }
-}
-
-struct SystemTaskExecutor
-{
-    func executeSystemCommandWithLaunchPath(launchPath: String, arguments: String) -> String? {
-        let task = NSTask()
-        task.launchPath = launchPath
-        task.arguments = arguments.characters.split{$0 == " "}.map(String.init);
-
-        let pipe = NSPipe()
-        task.standardOutput = pipe
-        task.launch()
-
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data:data, encoding:NSUTF8StringEncoding) as String?
-        return output
-    }
-}
-
 struct GitUtility {
     func tagBranchWithTagName(tagName: String) -> String? {
         return executeGitCommandWithArguments("tag " + tagName.stringByTrimmingWhitespaceAndNewline())
@@ -58,8 +31,8 @@ struct GitUtility {
     // MARK: private
 
     private func executeGitCommandWithArguments(arguments: String) -> String? {
-        let taskExecutor = SystemTaskExecutor()
-        return taskExecutor.executeSystemCommandWithLaunchPath(Constants.gitPath, arguments:arguments)
+        let taskExecutor = OSTaskExecutor()
+        return taskExecutor.systemCommandWithLaunchPath(Constants.gitPath, arguments:arguments)
     }
 }
 
@@ -101,7 +74,7 @@ func tagNameFromBranchName(branchName: String) -> String {
 }
 
 func executeArgvtoolWithArguments(arguments: String) -> String? {
-    return SystemTaskExecutor().executeSystemCommandWithLaunchPath(Constants.agvtoolPath, arguments: arguments)
+    return OSTaskExecutor().systemCommandWithLaunchPath(Constants.agvtoolPath, arguments: arguments)
 }
 
 func bumpBuildVersionNumber() {
@@ -129,7 +102,7 @@ func main() {
 
         print("\nCurrently the script only places a tag in the repo")
         print("Things on the list to implement:")
-        print("\t- unit tests")
+        print("\t- missing unit tests")
         print("\t- abort execution if there are local changes in the repo (you don't want to release if there are some local changes!)")
         print("\t- automatically make a commit updating version number in the info.plist file")
         print("\t- print more verbose information about what's happening behind the scenes")
