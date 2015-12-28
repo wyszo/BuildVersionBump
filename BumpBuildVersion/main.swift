@@ -32,7 +32,7 @@ struct GitUtility {
 
     private func executeGitCommandWithArguments(arguments: String) -> String? {
         let taskExecutor = OSTaskExecutor()
-        return taskExecutor.systemCommandWithLaunchPath(Constants.gitPath, arguments:arguments)
+        return taskExecutor.systemCommandWithLaunchPath(Constants.gitPath, arguments:arguments).0
     }
 }
 
@@ -74,7 +74,7 @@ func tagNameFromBranchName(branchName: String) -> String {
 }
 
 func executeArgvtoolWithArguments(arguments: String) -> String? {
-    return OSTaskExecutor().systemCommandWithLaunchPath(Constants.agvtoolPath, arguments: arguments)
+    return OSTaskExecutor().systemCommandWithLaunchPath(Constants.agvtoolPath, arguments: arguments).0
 }
 
 func bumpBuildVersionNumber() {
