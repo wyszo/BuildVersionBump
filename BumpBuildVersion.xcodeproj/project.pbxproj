@@ -14,7 +14,6 @@
 		6C5AC58739C84D669C85D4C5 /* OSTaskExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACC58BFBB9CD690B67991 /* OSTaskExecutor.swift */; };
 		6C5AC74A056E1E8EC11DA874 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACC8953FBC29C73138C96 /* StringExtensions.swift */; };
 		6C5AC777767811C665147F98 /* OSTaskExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACC58BFBB9CD690B67991 /* OSTaskExecutor.swift */; };
-		6C5AC9C445CE869F7B64A76D /* OSTaskExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AC6C2AE6AB33C685CA119 /* OSTaskExecutorTests.swift */; };
 		6C5AC9EEFFF278050CA5A6D5 /* OSTaskExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AC6C2AE6AB33C685CA119 /* OSTaskExecutorTests.swift */; };
 		6C5ACA196865630D6DE26D68 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACC8953FBC29C73138C96 /* StringExtensions.swift */; };
 		6C5ACB3D94D03D44A8AF1A61 /* BumpBuildVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5ACB7A0781E8C2C0DA491C /* BumpBuildVersionTests.swift */; };
@@ -173,6 +172,7 @@
 		6C5AC1CEBB9FB6E8517A3E81 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				ORGANIZATIONNAME = tw;
 			};
 			buildConfigurationList = 6C5AC94FCB0E45C21601F52E /* Build configuration list for PBXProject "BumpBuildVersion" */;
@@ -211,7 +211,6 @@
 				6C5ACD4B9B481BEFD27530F1 /* main.swift in Sources */,
 				6C5AC74A056E1E8EC11DA874 /* StringExtensions.swift in Sources */,
 				6C5AC777767811C665147F98 /* OSTaskExecutor.swift in Sources */,
-				6C5AC9C445CE869F7B64A76D /* OSTaskExecutorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +426,7 @@
 				6C5ACCCA74D6C80C2E21EE68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C5AC94DB71AFFBB90AEB5E0 /* Build configuration list for PBXNativeTarget "BumpBuildVersionTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +435,7 @@
 				6C5AC2F3845BA874F7E883D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C5AC94FCB0E45C21601F52E /* Build configuration list for PBXProject "BumpBuildVersion" */ = {
 			isa = XCConfigurationList;
