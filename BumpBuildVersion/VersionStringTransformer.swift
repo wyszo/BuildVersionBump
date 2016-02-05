@@ -11,23 +11,29 @@ struct VersionStringTransformer {
   
   // MARK: private
   
-  private func nextMajorMinorInternalVersion(version: String, separator: Character) -> String {
-    assert(version.characters.count > 0)
+  private func nextMajorMinorInternalVersion(previousVersion: String, separator: Character) -> String {
+    assert(previousVersion.characters.count > 0)
     
-    var nextVersionString = version
-    var versionComponents = version.stringByTrimmingWhitespaceAndNewline().characters.split{$0 == separator}.map(String.init)
-    
-    if let lastVersionComponent = versionComponents.last {
-      let lastNumber = Int(lastVersionComponent)
-      
-      if let safeLastNumber = lastNumber {
-        let nextVersionNumber = Int(safeLastNumber + 1)
-        
-        let lastIndex = (versionComponents.count - 1)
-        versionComponents[lastIndex] = String(nextVersionNumber)
-      }
-      nextVersionString = versionComponents.joinWithSeparator(String(separator))
+    func componentsOfString(string : String, withSeparator separator: Character) -> [String] {
+      return string.characters.split{$0 == separator}.map(String.init)
     }
-    return nextVersionString
+    
+    func componentsByIncrementingLastComponentValue(var components: [String]) -> [String] {
+      if let lastComponent = components.last {
+        if let lastNumber = Int(lastComponent) {
+          let incrementedNumber = Int(lastNumber + 1)
+          let lastIndex = (components.count - 1)
+          
+          components[lastIndex] = String(incrementedNumber)
+        }
+      }
+      return components
+    }
+    
+    let versionComponents = componentsOfString(previousVersion.stringByTrimmingWhitespaceAndNewline(), withSeparator: separator)
+    if versionComponents.count > 0 {
+      return componentsByIncrementingLastComponentValue(versionComponents).joinWithSeparator(String(separator))
+    }
+    return previousVersion
   }
 }
