@@ -36,7 +36,7 @@ func main() {
 
         print("\nCurrently the script only places a tag in the repo")
         print("Things on the list to implement:")
-        print("\t- missing unit tests")
+        print("\t- missing unit tests for some classes")
         print("\t- abort execution if there are local changes in the repo (you don't want to release if there are some local changes!)")
         print("\t- automatically make a commit updating version number in the info.plist file")
         print("\t- print more verbose information about what's happening behind the scenes")

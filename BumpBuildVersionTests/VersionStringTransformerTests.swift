@@ -1,6 +1,6 @@
 import XCTest
 
-class BumpBuildVersionTests: XCTestCase {
+class VersionStringTransformerTests: XCTestCase {
   func testNotImplementedYet() {
     XCTAssertFalse(true, "not implemented yet")
   }
