@@ -2,79 +2,13 @@
 
 import Foundation
 
-struct Constants {
-    static let gitPath = "/usr/bin/git"
-    static let agvtoolPath = "/usr/bin/agvtool"
-}
-
-struct GitUtility {
-    func tagBranchWithTagName(tagName: String) -> String? {
-        return executeGitCommandWithArguments("tag " + tagName.stringByTrimmingWhitespaceAndNewline())
-    }
-
-    func createBranchNamed(branchName: String) {
-        executeGitCommandWithArguments("branch " + branchName)
-    }
-
-    func deleteBranchNamed(branchName: String) {
-        executeGitCommandWithArguments("branch -D " + branchName)
-    }
-
-    func switchToBranchNamed(branchName: String) {
-        executeGitCommandWithArguments("checkout " + branchName)
-    }
-
-    func currentGitBranch() -> String? {
-        return executeGitCommandWithArguments("rev-parse --abbrev-ref HEAD")?.stringByTrimmingWhitespaceAndNewline()
-    }
-
-    // MARK: private
-
-    private func executeGitCommandWithArguments(arguments: String) -> String? {
-        let taskExecutor = OSTaskExecutor()
-        return taskExecutor.systemCommandWithLaunchPath(Constants.gitPath, arguments:arguments).0
-    }
-}
-
-struct VersionStringTransformer {
-    func nextBranchName(branchName: String) -> String {
-        return nextMajorMinorInternalVersion(branchName, separator: "_")
-    }
-
-    func nextBuildVersionNumber(version: String) -> String {
-        return nextMajorMinorInternalVersion(version, separator: ".")
-    }
-
-    // MARK: private
-
-    private func nextMajorMinorInternalVersion(version: String, separator: Character) -> String {
-        assert(version.characters.count > 0)
-
-        var nextVersionString = version
-        var versionComponents = version.stringByTrimmingWhitespaceAndNewline().characters.split{$0 == separator}.map(String.init)
-
-        if let lastVersionComponent = versionComponents.last {
-            let lastNumber = Int(lastVersionComponent)
-
-            if let safeLastNumber = lastNumber {
-                let nextVersionNumber = Int(safeLastNumber + 1)
-
-                let lastIndex = (versionComponents.count - 1)
-                versionComponents[lastIndex] = String(nextVersionNumber)
-            }
-            nextVersionString = versionComponents.joinWithSeparator(String(separator))
-        }
-        return nextVersionString
-    }
-}
-
 func tagNameFromBranchName(branchName: String) -> String {
     let safeBranchName = branchName.stringByTrimmingWhitespaceAndNewline()
     return String(safeBranchName.characters.dropFirst())
 }
 
 func executeArgvtoolWithArguments(arguments: String) -> String? {
-    return OSTaskExecutor().systemCommandWithLaunchPath(Constants.agvtoolPath, arguments: arguments).0
+    return OSTaskExecutor().systemCommandWithLaunchPath(Constants.Paths.agvtoolPath, arguments: arguments).0
 }
 
 func bumpBuildVersionNumber() {
